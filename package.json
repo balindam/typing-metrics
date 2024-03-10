@@ -1,14 +1,16 @@
 {
   "name": "typing-metrics",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A package to calculate typing metrics",
   "main": "src/index.js",
   "scripts": {
       "test": "jest"
   },
-  "keywords": ["typing", "metrics", "wpm", "accuracy", "msd", "kspc"],
-  "author": "Your Name",
-  "license": "ISC",
+  "keywords": ["typing", "metrics", "wpm", "accuracy", "msd", "kspc", "typing-test", 
+    "typing-speed", "typing-accuracy", "typing-metrics", "typing-speed-test", "typing-accuracy-test", 
+    "typing-metrics-test", "typing-speed-calculator", "typing-accuracy-calculator", "typing-metrics-calculator"],
+  "author": "balindam",
+  "license": "MIT",
   "devDependencies": {
       "jest": "^27.4.5"
   },
