@@ -1,0 +1,15 @@
+{
+  "name": "typing-metrics",
+  "version": "1.0.0",
+  "description": "A package to calculate typing metrics",
+  "main": "src/index.js",
+  "scripts": {
+      "test": "jest"
+  },
+  "keywords": ["typing", "metrics", "wpm", "accuracy", "msd", "kspc"],
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+      "jest": "^27.4.5"
+  }
+}
