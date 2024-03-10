@@ -1,6 +1,6 @@
 {
   "name": "typing-metrics",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package to calculate typing metrics",
   "main": "src/index.js",
   "scripts": {
@@ -11,5 +11,9 @@
   "license": "ISC",
   "devDependencies": {
       "jest": "^27.4.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/balindam/typing-metrics.git"
   }
 }
