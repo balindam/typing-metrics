@@ -48,6 +48,7 @@ The accuracy is calculated as (1 - MSD error rate) * 100, which gives the percen
 * [ ] Research more around how to find accuracy metric
 * [ ] Check if WPM formula can be improved
 * [X] Add tests
+* [ ] Give different words different weights: basic words like "it", "the", "a" etc. should be given less weigh than difficult words like "childhood" etc.. (BRAINSTORM more)
 
 ## License
 
