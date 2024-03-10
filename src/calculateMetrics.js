@@ -57,3 +57,9 @@ function calculateMetrics(text, typedText, timeInSeconds) {
         kspc
     };
 }
+
+module.exports = {
+    calculateLevenshteinDistance,
+    calculateKSPC,
+    calculateMetrics
+};

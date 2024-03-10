@@ -1,3 +1,3 @@
-const calculateMetrics = require('./calculateMetrics');
+const { calculateMetrics } = require('./calculateMetrics');
 
 module.exports = calculateMetrics;

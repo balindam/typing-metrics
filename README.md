@@ -38,12 +38,16 @@ The WPM is calculated by counting the number of words in the typed text (a word 
 
 The accuracy is calculated as (1 - MSD error rate) * 100, which gives the percentage of characters that were typed correctly.
 
+#### References
+
+[Error Analysis](https://en.wikipedia.org/wiki/Typing#Error_analysis "https://en.wikipedia.org/wiki/Typing#Error_analysis")
+
 ## Todo
 
-* Improve KSPC logic
-* Research more around how to find accuracy metric
-* Check if WPM formula can be improved
-* Add tests
+* [ ] Improve KSPC logic
+* [ ] Research more around how to find accuracy metric
+* [ ] Check if WPM formula can be improved
+* [X] Add tests
 
 ## License
 
