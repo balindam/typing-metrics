@@ -11,11 +11,29 @@ npm install typing-metrics
 ## Usage
 
 ```
-const calculateMetrics = require('typing-metrics');
+const { calculateMetrics } = require('typing-metrics');
 
-const metrics = calculateMetrics('hello world', 'hello world');
+// The calculateMetrics function takes three arguments:
+// 1. text: The original text that the user is supposed to type.
+// 2. typedText: The text that the user actually typed.
+// 3. timeInSeconds: The time it took the user to type the text, in seconds.
 
-console.log(metrics);
+const metrics = calculateMetrics('hello world', 'helli world', 60);
+
+// The calculateMetrics function returns an object with the following properties:
+// 1. wordsPerMinute: The typing speed of the user in words per minute.
+// 2. accuracy: The percentage of characters that were typed correctly.
+// 3. msdErrorRate: The minimum string distance error rate, which is a measure of the typing errors.
+// 4. kspc: The average number of keystrokes per character.
+
+// You can destructure the returned object to get these metrics:
+
+const { wordsPerMinute, accuracy, msdErrorRate, kspc } = metrics;
+
+console.log(`Words per minute: ${wordsPerMinute}`);
+console.log(`Accuracy: ${accuracy}%`);
+console.log(`MSD error rate: ${msdErrorRate}`);
+console.log(`KSPC: ${kspc}`);
 ```
 
 ## Algorithm

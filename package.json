@@ -1,6 +1,6 @@
 {
   "name": "typing-metrics",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A package to calculate typing metrics",
   "main": "src/index.js",
   "scripts": {
