@@ -56,7 +56,7 @@ In this package, the Levenshtein distance is normalized by the length of the ori
 
 ### Keystrokes Per Character (KSPC)
 
-The KSPC is calculated by counting the number of keystrokes needed to type the text. If there is a mismatch between the typed character and the original character, it is counted as two keystrokes: one for the backspace and one for the retype. The total number of keystrokes is then divided by the total number of characters in the original text to calculate the KSPC.
+The KSPC is calculated by dividing the total number of keystrokes made by the user by the total number of characters in the original text. This gives the average number of keystrokes per character. The total number of keystrokes includes all keystrokes made by the user, including typing characters, backspaces, and retypes.
 
 ### Words Per Minute (WPM)
 
