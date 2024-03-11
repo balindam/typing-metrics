@@ -31,19 +31,11 @@ class TypingMetrics {
     /**
      * Function to calculate KSPC (Keystrokes per Character)
      * @param {string} text - The original text
-     * @param {string} typedText - The text that the user actually typed
+     * @param {number} totalNumberOfKeyStrokes - The total number of keystrokes made by the user
      * @returns {number} The average number of keystrokes per character
      */
-    calculateKSPC(text, typedText) {
-        let keystrokes = 0;
-        for (let i = 0; i < text.length; i++) {
-            if (i < typedText.length && text[i] != typedText[i]) {
-                keystrokes += 2; // one for backspace and one for retype
-            } else {
-                keystrokes += 1;
-            }
-        }
-        return keystrokes / text.length;
+    calculateKSPC(text, totalNumberOfKeyStrokes) {
+        return this.roundToTwo(totalNumberOfKeyStrokes / text.length);
     }
 
     /**
@@ -51,35 +43,45 @@ class TypingMetrics {
      * @param {string} text - The original text that the user is supposed to type
      * @param {string} typedText - The text that the user actually typed
      * @param {number} timeInSeconds - The time it took the user to type the text, in seconds
+     * @param {number} totalNumberOfKeyStrokes - The total number of keystrokes made by the user
      * @returns {Object} An object with the following properties:
      *  - wordsPerMinute: The typing speed of the user in words per minute
      *  - accuracy: The percentage of characters that were typed correctly
      *  - msdErrorRate: The minimum string distance error rate, which is a measure of the typing errors
      *  - kspc: The average number of keystrokes per character
      */
-    calculateMetrics(text, typedText, timeInSeconds) {
+    calculateMetrics(text, typedText, timeInSeconds, totalNumberOfKeyStrokes) {
         const lenText = text.length;
         const lenTypedText = typedText.length;
 
         // Calculate MSD error rate
-        const msdErrorRate = this.calculateLevenshteinDistance(text, typedText) / lenText;
+        const msdErrorRate = lenText > 0 ? this.calculateLevenshteinDistance(text, typedText) / lenText : 0;
 
         // Calculate KSPC
-        const kspc = this.calculateKSPC(text, typedText);
+        const kspc = this.calculateKSPC(text, totalNumberOfKeyStrokes);
 
         // Calculate words per minute
-        const wordsPerMinute = (lenTypedText / 5) / (timeInSeconds / 60);
+        const wordsPerMinute = timeInSeconds > 0 ? (lenTypedText / 5) / (timeInSeconds / 60) : 0;
 
         // Calculate accuracy
         const accuracy = (1 - msdErrorRate) * 100;
 
         return {
-            wordsPerMinute,
-            accuracy,
-            msdErrorRate,
-            kspc
+            wordsPerMinute: this.roundToTwo(wordsPerMinute),
+            accuracy: this.roundToTwo(accuracy),
+            msdErrorRate: this.roundToTwo(msdErrorRate),
+            kspc: this.roundToTwo(kspc)
         };
     }
+
+    /**
+     * Function to round a number to two decimal places
+     * @param {number} num - The number to round
+     * @returns {number} The rounded number
+     */
+        roundToTwo(num) {
+            return +(Math.round(num + "e+2")  + "e-2");
+        }
 }
 
 module.exports = TypingMetrics;
