@@ -1,3 +1,3 @@
-const { calculateMetrics } = require('./calculateMetrics');
+const TypingMetrics = require('./TypingMetrics');
 
-module.exports = calculateMetrics;
+module.exports = TypingMetrics;
